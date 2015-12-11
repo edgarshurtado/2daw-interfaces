@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Arco Iris</title>
+        
+    </head>
+    <body>
+        <canvas id="mycanvas" height="500" width="500"></canvas>
+
+        <script type="text/javascript" charset="utf-8">
+            var ctx = document.getElementById("mycanvas").getContext("2d");
+
+            ctx.lineWidth = 50;
+            ctx.beginPath();
+
+            ctx.arc(250, 250, 200, 0, (Math.PI/180) * 180, true);
+
+            var radialGradient = ctx.createRadialGradient(
+                250, 250, 175,
+                250, 250, 225 
+            );
+            radialGradient.addColorStop(1, "#FF0017"); //rojo
+            radialGradient.addColorStop(0.75, "#FFFD56"); //amarillo
+            radialGradient.addColorStop(0.5, "#FF7D2D"); //naranja
+            radialGradient.addColorStop(0.25, "#7D1ADC"); //violeta
+            radialGradient.addColorStop(0, "#D80FC1"); //casi rosita
+
+
+            ctx.strokeStyle = radialGradient;
+            ctx.stroke();
+        </script>
+    </body>
+</html>
