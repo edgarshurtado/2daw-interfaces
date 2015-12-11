@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Mickey Mouse</title>
+        
+    </head>
+    <body>
+        <canvas id="mycanvas" width="500" height="500"> </canvas>
+
+        <script type="text/javascript" charset="utf-8">
+            var canvas = document.getElementById("mycanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.fillStyle = "red";
+
+            var canvasCenter = {x: canvas.width / 2,
+                                y: canvas.height / 2};
+
+
+            function toRad(degrees){
+                return (Math.PI/180)*degrees;
+            }
+
+            // Face
+            ctx.beginPath();
+            ctx.arc(canvasCenter.x, canvasCenter.y, 100, 0, toRad(360), false);
+            ctx.fill();
+
+            // Left Ear
+            ctx.beginPath();
+            ctx.arc(canvasCenter.x - 80, canvasCenter.y - 80, 60, 0,
+                    toRad(360), false);
+            ctx.fill();
+
+            //Right Ear
+            ctx.beginPath();
+            ctx.arc(canvasCenter.x + 80, canvasCenter.y - 80, 60, 0,
+                    toRad(360), false);
+            ctx.fill();
+        </script>
+    </body>
+</html>

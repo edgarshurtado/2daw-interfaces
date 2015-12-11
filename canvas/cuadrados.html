@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <canvas id="mycanvas" width="300" height="300"></canvas>
+        <script type="text/javascript">
+            var canvas = document.getElementById("mycanvas");
+     
+            var squaresPerRow = 5;
+            var numRows = 5;
+
+            var ctx = canvas.getContext("2d");
+            ctx.fillStyle = "black";
+
+            for(var row = 0; row < numRows; row++){
+                for(var squareNum = 0; squareNum < squaresPerRow; squareNum++){
+                    var x = (canvas.width / squaresPerRow) * squareNum;
+                    var y = (canvas.height / numRows) * row;
+                    ctx.fillRect(x, y,"20", "20");
+                }
+            }
+            
+        </script>
+    </body>
+</html>
