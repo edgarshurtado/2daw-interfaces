@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title></title>
+        
+    </head>
+    <body>
+        <canvas id="mycanvas" height="500" width="500"></canvas>
+
+        <script type="text/javascript" charset="utf-8">
+            var ctx = document.getElementById("mycanvas").getContext("2d");
+            var lineargrad = ctx.createLinearGradient(0,144, 0, 200);
+            lineargrad.addColorStop(0.5, "black");
+            lineargrad.addColorStop(1, "white");
+
+            ctx.font = "52px comic-sans";
+
+            ctx.fillStyle = lineargrad;
+
+            ctx.fillText("Canvas", 200, 200);
+        </script>
+    </body>
+</html>
