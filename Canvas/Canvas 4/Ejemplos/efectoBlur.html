@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Efecto blur con HTML5 canvas</title>
+
+
+
+</head>
+<body>
+
+<div class="center">
+	 
+		
+		<h1 align="center"><p style="background:#222;color:#fff;">Efecto blur con HTML5 canvas. Mueve la barra para desenfocar</p></h1>
+		
+		<canvas id="micanvas" width="700" height="370">
+		<p>Tu navegador no soporta esta característica. Aquí tendrías que ver una imagen:</p>
+		</canvas>
+		
+		<input type="range"  name="blur" min="0.1" max="1" step="0.1" value="1" style="width:100%;">
+		
+		
+	
+		
+		
+</div>
+<script type="text/javascript">
+	<!-- cuando el documento esta cargado muestro la imagen en el canvas -->
+	window.onload = function() {
+		<!-- declaro la imagen y la almaceno en una variable -->
+		img = new Image();
+		img.src = 'buga.jpg'; 
+		<!-- selecciono la etiqueta canvas y defino el contexto -->	
+		canvas = document.querySelector('micanvas');                
+		ctx = document.querySelector('canvas').getContext('2d');
+		<!-- muestro la imagen solo si se ha terminado de cargar -->
+		img.onload = function() {
+		<!-- establezco las coordenadas de x a 9 para que la imagen no se mueva al aplicarle el efecto -->
+		ctx.drawImage(img,0,9);
+		}
+		
+					
+	};
+	<!-- añado un evenlistener al input range para ejecutar esta función al moverlo -->
+	document.querySelector('input[name="blur"]').addEventListener('change',function(){
+		img = new Image();
+		img.src = 'buga.jpg';
+		canvas = document.querySelector('micanvas');
+		ctx = document.querySelector('canvas').getContext('2d');
+		<!-- establezco el nivel de transparencia globalAlpha al valor que tenga el input range -->
+		ctx.globalAlpha = this.value;
+		img.onload=function() {
+			<!-- muestro la imagen varias veces -->
+			for (var y=0;y<10;++y) ctx.drawImage(img,0,y);
+		}
+			
+		
+	});
+</script>
+
+</body>
+</html>

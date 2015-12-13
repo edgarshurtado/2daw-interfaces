@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Efectos en letras</title>
+    </head>
+    <body>
+    <canvas id="mycanvas" height="500" width="500"></canvas>
+    </body>
+    <footer>
+        <script type="text/javascript">
+            var ctx = document.getElementById("mycanvas").getContext("2d");
+            ctx.font = "70px Arial";
+
+            //Stereoscopic 
+            ctx.fillStyle="cyan";
+            ctx.fillText("Stereoscopic", 50, 80);
+
+            ctx.fillStyle="red";
+            ctx.fillText("Stereoscopic", 40, 80);
+
+            ctx.fillStyle="black";
+            ctx.fillText("Stereoscopic", 45, 80);
+
+            
+            //Anaglyphic
+            ctx.fillStyle="pink";
+            ctx.fillText("Anaglyphic", 40, 200);
+
+            ctx.fillStyle="rgba(95, 189, 240, 0.5)";
+            ctx.fillText("Anaglyphic", 42, 205);
+
+            //Vintage Radio
+
+            ctx.fillStyle = "black";
+            ctx.fillText("Vintage Radio", 54, 296);
+
+            ctx.fillStyle = "white";
+            ctx.fillText("Vintage Radio", 52, 298);
+
+            ctx.fillStyle = "grey";
+            ctx.fillText("Vintage Radio", 50, 300);
+
+            //Shadow ;)
+            ctx.shadowOffsetX = -450;
+            ctx.shadowOffsetY = 2;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = "black";
+
+            ctx.fillText("Shadow ;)", 500, 400);
+            
+            //Shadow3D
+            ctx.shadowOffsetX = 4;
+            ctx.shadowOffsetY = 4;
+            ctx.shadowBlur = 0;
+            ctx.shadowColor = "black";
+
+            ctx.fillStyle = "grey";
+            ctx.fillText("Shadow3D", 50, 490);
+        </script>
+    </footer>
+</html>

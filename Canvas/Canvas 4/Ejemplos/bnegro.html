@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ejemplo blanco y negro con HTML5 canvas</title>
+<style type="text/css">
+
+body{font-family: "Arial", Helvetica, sans-serif;color:#333;}
+.center{
+	position:absolute;
+	width:700px;
+	height:600px;
+	top:50%;
+	left:50%;
+	margin-left:-350px;
+	margin-top:-300px;
+
+}
+h1{
+
+	font-size:20px;
+
+}
+#boton{
+	float:left;
+	font-size:16px;
+	padding:8px;
+
+}
+
+a{
+	text-decoration:none;
+	font-family: 'Black Ops One', cursive;
+	font-size:25px;
+	color:#222;
+
+
+}
+a:hover{
+
+	color:#DF7401;
+	
+}
+.nsc{
+
+	float:right;
+	margin-top:18px;
+
+}
+					
+</style>
+
+
+</head>
+<body>
+
+<div class="center">
+	 
+		
+		<h1 align="center"><p style="background:#222;color:#fff;">Pulsa el botón para poner la imagen en blanco y negro</p></h1>
+		
+		<canvas id="micanvas" width="700" height="370">
+		<p>Tu navegador no soporta esta característica. Aquí tendrías que ver una imagen:</p>
+		</canvas>
+		<input type="button" id="boton" value="Blanco y negro!" />
+		
+	
+		
+		
+</div>
+<script type="text/javascript">
+	<!-- cuando el documento esta cargado muestro la imagen en el canvas -->
+	window.onload = function() {
+	<!-- declaro la imagen y la almaceno en una variable -->
+		imagen=new Image();
+		imagen.src="610gto.jpg";
+		<!-- selecciono la etiqueta canvas y defino el contexto -->	
+		var canvas = document.getElementById("micanvas");
+		var ctx = canvas.getContext("2d");
+		<!-- muestro la imagen solo si se ha terminado de cargar -->
+		imagen.onload=function() {
+		<!-- muestro la imagen antes de aplicarle el efecto para que canvas no quede vacio -->
+			ctx.drawImage(this, 0, 0);
+		}
+	};	
+	<!-- al pulsar el botón vuelvo a mostrar la imagen y le aplico el efecto -->
+	document.querySelector ('#boton').addEventListener ('click', function() { 
+		imagen=new Image();
+		imagen.src="610gto.jpg";
+		var canvas = document.getElementById("micanvas");
+		var ctx = canvas.getContext("2d");
+		imagen.onload=function() {
+			ctx.drawImage(this, 0, 0);
+			<!-- extraigo la información de los pixel desde la posición 0,0 y para toda la longitud de la imagen  -->
+			var imgd = ctx.getImageData(0, 0, 700, 395);
+			<!-- lo almaceno todo en un array -->
+			var pix = imgd.data;
+			<!-- recorro el array con un for, avanzando 4 posiciones en cada ciclo para saltar de pixel en pixel (cada pixel tiene 4 valores) -->
+			for (var i = 0, n = pix.length; i < n; i += 4) {
+			<!-- aplico la formula de la luminancia a cada pixel y almaceno el color resultante en grayscale -->
+			var grayscale = pix[i  ] * .3 + pix[i+1] * .59 + pix[i+2] * .11;
+			<!-- igualo cada valor del pixel a grayscale -->
+			pix[i  ] = grayscale; 	// rojo
+			pix[i+1] = grayscale; 	// verde
+			pix[i+2] = grayscale; 	// azul
+			}
+			<!-- vuelvo a poner los datos de la imagen en el canvas -->
+			ctx.putImageData(imgd, 0, 0);
+			
+		}
+	});
+
+		
+	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="https://developer.mozilla.org/en-US/docs/Template:CustomSampleCSS?raw=1" />
+    </head>
+    <body>
+        <canvas id="canvas" width="300" height="227" style="float:left"></canvas>
+		<div id="color" style="width:200px;height:50px;float:left"></div>
+        <script type="text/javascript">
+        		//Cargamos imagen	
+                var img = new Image();
+				img.src = 'rhino.jpg';
+
+				var canvas = document.getElementById('canvas');
+				var ctx = canvas.getContext('2d');
+				
+				//Dibujamos imagen
+				img.onload = function() {
+				  ctx.drawImage(img, 0, 0);
+				  img.style.display = 'none';
+				};
+				
+				var color = document.getElementById('color');
+
+				//Función ejecutada al mover ratón
+				function pick(event) {
+				  var x = event.layerX;
+				  var y = event.layerY;
+				  var pixel = ctx.getImageData(x, y, 1, 1);
+				  var data = pixel.data;
+				  var rgba = 'rgba(' + data[0] + ',' + data[1] +
+				             ',' + data[2] + ',' + data[3] + ')';
+				  color.style.background =  rgba;
+				  color.textContent = rgba;
+				}
+
+				//Evento de ratón
+				canvas.addEventListener('mousemove', pick);
+     	</script>
+    </body>
+</html>

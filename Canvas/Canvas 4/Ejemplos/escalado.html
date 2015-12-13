@@ -1,0 +1,50 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd"
+    >
+<html>
+<head>
+    <title>Imágenes en Canvas escalado cambio de tamaño</title>
+<script language="javascript">
+function cargaContextoCanvas(idCanvas){
+	var elemento = document.getElementById(idCanvas);
+	if(elemento && elemento.getContext){
+		var contexto = elemento.getContext('2d');
+		if(contexto){
+			return contexto;
+		}
+	}
+	return FALSE;
+}
+
+
+window.onload = function(){
+	//Recibimos el elemento canvas
+	var ctx = cargaContextoCanvas('micanvas');
+	if(ctx){
+		//Creo una imagen conun objeto Image de Javascript
+		var img = new Image();
+		//indico la URL de la imagen
+		img.src = 'logo.gif';
+		//defino el evento onload del objeto imagen
+		img.onload = function(){
+			//incluyo la imagen en el canvas escala muy pequeña
+			ctx.drawImage(img, 0, 0, 50 , 24);
+			//un poco mayor
+			ctx.drawImage(img, 70, 10, 80 , 38);
+			//tamaño natural
+			ctx.drawImage(img, 160, 20);
+		}
+	}
+}
+
+</script>
+</head>
+<body>
+
+<canvas id="micanvas" width="400" height="300">
+Tu navegador no soporta canvas.
+</canvas>
+
+</body>
+</html>
