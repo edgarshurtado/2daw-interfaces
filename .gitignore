@@ -9,3 +9,9 @@ Session.vim
 .netrwhist
 *~
 
+### Files ###
+*.pdf
+*.mp4
+*.mp3
+*.ogg
+*.ogv
