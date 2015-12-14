@@ -1,0 +1,29 @@
+#header {
+    witdth:100%;
+    background-color: grey;
+    height: 200px;
+}
+
+#content {
+    height: 100%;
+    background-color: red;
+}
+
+#nav {
+    background-color: green;
+    width: 200px;
+    height: 100%;
+    float: left;
+}
+
+#footer {
+    background-color: black;
+    height: 50px;
+}
+
+#footer p {
+    clear: both;
+    color: white;
+    margin: 0;
+    padding: 10px 0 0 5px;
+}

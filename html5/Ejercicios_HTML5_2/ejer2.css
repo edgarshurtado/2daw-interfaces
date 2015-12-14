@@ -1,0 +1,56 @@
+body {
+    background-color: grey;
+}
+header {
+    margin-top: 20px;
+    background-color: white;
+    padding-bottom: 10px;
+}
+header img {
+    float:left;
+}
+
+header h1 {
+    position: relative;
+}
+
+section{
+    margin-top: 15px;
+    background-color: white;
+    padding-top: 30px;
+    width: 70%;
+    float: left;
+    height: 100%;
+}
+
+section img {
+    float: left;
+}
+
+section p {
+    margin-left: 5px;
+}
+
+aside {
+    margin-top: 15px;
+    background-color: white;
+    float: right;
+    padding: 5px 5px 5px 5px;
+}
+
+footer {
+    margin-top: 10px;
+}
+
+footer nav {
+    float: right;
+}
+
+footer nav a {
+    background-color: white;
+    padding: 5px 5px 5px 5px;
+}
+
+#footer-container {
+    width: 70%;
+}

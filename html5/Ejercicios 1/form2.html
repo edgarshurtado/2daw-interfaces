@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Formulario 2</title>
+        <link rel="stylesheet" href="formstyle.css" type="text/css" media="all" />
+    </head>
+    <body>
+    <form action="form2_submit" method="get" accept-charset="utf-8">
+        <label for="name">Name (required)</label>
+        <input type="text" name="name" id="name" value="" required autofocus/> <br>
+
+        <label for="Title">Title</label>
+        <input type="text" name="Title" id="Title" value="" /> <br>
+
+        <label for="Shoesize">Shoesize</label>
+        <input type="number" min="10" max="60" name="Shoesize" id="Shoesize" value="" /> <br>
+
+        <label for="email">Email (required)</label>
+        <input type="email" name="email" id="email" value="" required/> <br>
+
+        <label for="Webpage">Webpage</label>
+        <input type="url" name="Webpage" id="Webpage" value="" /><br>
+
+        <label for="Date of birth">Date of birth</label>
+        <input type="date" name="Date of birth" id="Date of birth" value="" /> <br>
+
+        <label for="Atractiveness">Atractiveness</label>
+        <input type="range" name="Atractiveness" id="Atractiveness" value="0" />
+    
+        <p><input type="submit" value="Continue →"></p>
+    </form>
+
+    </body>
+</html>
